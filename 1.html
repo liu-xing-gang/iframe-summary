@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <pre>
+      JQUERY,JS调用IFRAME父窗口与子窗口元素的方法
+      1.在iframe子页面获取父页面元素
+      $("#objid", parent.document) <===> $('#id', window.parent.document)
+      window.parent.document.getElementById(id)
+
+      2.在父页面获取iframe子页面的元素
+        $('#iframe').contents().find(".son")
+        window.frames["frame"].contentWindow.document.getElementById('son').innerText
+      
+      3.在iframe中调用父页面中定义的方法和变量
+        parent.method parent.value <===> window.parent.method widnow.parent.value
+
+      4.在父页面调用子页面的方法
+      iframeName为iframe的name属性值
+      iframeName.window.chlidFunctionName()
+    </pre>
+    <div class="parent" id="parent">Hi!</div>
+    <!-- <iframe id="frame" name="frameName" src="./2.html"></iframe> -->
+    <script>
+     
+        var strP ="from parent."
+        var funcP = function(){console.log('call parent function.')}
+        $("body").append('<iframe id="frame" name="frameName" src="./2.html"></iframe>'); 
+        // 等价于直接写在页面中的iframe
+
+        $('#frame').load(function(){
+          alert($('#frame').contents().find(".son").text())
+          console.log('//////', window.frames["frame"].contentWindow.document.getElementById('son').innerText)
+          frameName.window.chlidFunc()
+        })
+       
+        
+          
+      
+      
+     
+    </script>
+  </body>
+</html>

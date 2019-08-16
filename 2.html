@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="son" id="son">Hello!</div>
+
+    <script>
+      var strS ="from son."
+      var chlidFunc = function () {console.log('***', 'call childFunc')}
+      console.log('2.html-1:', $('.parent', window.parent.document).html())
+      console.log('2.html-2:', $(".parent", parent.document).text())
+      console.log(parent.strP)
+      parent.funcP()
+      console.log('-----',window.parent.document.getElementById('parent').innerText)
+      
+    </script>
+  </body>
+</html>
